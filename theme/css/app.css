@@ -1,0 +1,22 @@
+body {
+  background-image:url('../images/white_wall_hash.png');
+}
+.panel {
+  /* background: #eaeff4; */
+  background: #e8edf2;
+}
+h3 > a {
+  color: black;
+}
+h3 > a:hover {
+  color: black;
+}
+li {
+  list-style-position: inside;
+}
+#talks-table tbody tr:hover td
+{
+    /* color: #009; */
+    color: #2795b6;
+    cursor: pointer;
+}
