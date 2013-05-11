@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Damon McDougall's Homepage</title><link href="file://localhost/Users/damon/git/github/dmcdougall.github.com/" rel="alternate"></link><link href="file://localhost/Users/damon/git/github/dmcdougall.github.com/feeds/all.atom.xml" rel="self"></link><id>file://localhost/Users/damon/git/github/dmcdougall.github.com/</id><updated>2013-04-21T21:50:28Z</updated></feed>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Damon McDougall's Homepage</title><link href="file://localhost/Users/damon/git/github/dmcdougall.github.com/" rel="alternate"></link><link href="file://localhost/Users/damon/git/github/dmcdougall.github.com/feeds/all.atom.xml" rel="self"></link><id>file://localhost/Users/damon/git/github/dmcdougall.github.com/</id><updated>2013-05-10T18:25:00+02:00</updated><entry><title>Getting started with matplotlib</title><link href="file://localhost/Users/damon/git/github/dmcdougall.github.com/getting-started-with-matplotlib.html" rel="alternate"></link><updated>2013-05-10T18:25:00+02:00</updated><author><name>Damon McDougall</name></author><id>tag:file://localhost/Users/damon/git/github/dmcdougall.github.com,2013-05-10:getting-started-with-matplotlib.html</id><summary type="html">&lt;div class="section" id="introduction"&gt;
+&lt;h2&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;This is my first blog post, so bear with me.&lt;/p&gt;
+&lt;/div&gt;
+</summary><category term="python"></category><category term="matplotlib"></category><category term="science"></category></entry></feed>
