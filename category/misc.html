@@ -4,18 +4,18 @@
 <head>
     <meta name="viewport" content="width=device-width" />
   <title>Damon McDougall's Homepage</title>
-  <link rel="stylesheet" href="./theme/css/normalize.css" />
-  <link rel="stylesheet" href="./theme/css/foundation.css" />
-  <link rel="stylesheet" href="./theme/css/responsive-tables.css" />
-  <link rel="stylesheet" href="./theme/css/app.css" />
-  <!--<link rel="stylesheet" href="./theme/css/ipynb.css" />-->
-  <script src="./theme/js/vendor/jquery.js"></script>
-  <script src="./theme/js/responsive-tables.js"></script>
-  <script src="./theme/js/vendor/custom.modernizr.js"></script>
+  <link rel="stylesheet" href="../theme/css/normalize.css" />
+  <link rel="stylesheet" href="../theme/css/foundation.css" />
+  <link rel="stylesheet" href="../theme/css/responsive-tables.css" />
+  <link rel="stylesheet" href="../theme/css/app.css" />
+  <script src="../theme/js/vendor/jquery.js"></script>
+  <script src="../theme/js/responsive-tables.js"></script>
+  <script src="../theme/js/vendor/custom.modernizr.js"></script>
 
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href="file://localhost/Users/damon/git/github/dmcdougall.github.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Damon McDougall's Homepage Full Atom Feed" />
-                  <link rel="icon" type="image/ico" href="favicon.ico" />
+            <link href="file://localhost/Users/damon/git/github/dmcdougall.github.com/feeds/misc.atom.xml" type="application/atom+xml" rel="alternate" title="Damon McDougall's Homepage Categories Atom Feed" />
+          <link rel="icon" type="image/ico" href="favicon.ico" />
   <script language="javascript">
   <!--
   function okWWTHMfxCNVOnZ()
@@ -52,38 +52,40 @@
     document.location.href = url;
     }
   </script>
+  <!--<script type="text/javascript" src="../theme/js/mootools-core-1.3.2.js"></script>-->
+  <!--<script type="text/javascript" src="../theme/js/mootools-more-1.3.2.1.js"></script>-->
+  <!--<script type="text/javascript" src="../theme/js/moo.js"></script>-->
   </head>
 
 <body id="index" class="home">
   <!-- Nav Bar -->
-  <div class="row">
-    <div class="large-12 columns">
-      <h1>Damon McDougall</h1>
-      <hr />
-    </div>
+<div class="row">
+  <div class="large-12 columns">
+    <h1>Damon McDougall</h1>
+    <hr />
   </div>
-  <!-- End Nav -->
+</div>
+<!-- End Nav -->
 
-  <!-- Main Page Content and Sidebar -->
-  <div class="row">
-    <!-- Sidebar -->
-    <aside class="large-2 columns">
-      <h5>Categories</h5>
-      <ul class="side-nav">
-        <li><a href="./index.html">Home</a></li>
-        <li><a href="./index.html#about">About</a></li>
-        <li><a href="./index.html#research">Research</a></li>
-        <li><a href="./index.html#software">Software</a></li>
-        <li><a href="./index.html#teaching">Teaching</a></li>
-        <li><a href="./blogindex.html">Blog</a></li>
-      </ul>
-    </aside>
-    <!-- End Sidebar -->
+<!-- Main Page Content and Sidebar -->
+<div class="row">
+  <!-- Sidebar -->
+  <aside class="large-2 columns">
+    <h5>Categories</h5>
+    <ul class="side-nav">
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#software">Software</a></li>
+      <li><a href="#teaching">Teaching</a></li>
+      <!-- <li><a href="#">Weasels</a></li> -->
+    </ul>
+  </aside>
+  <!-- End Sidebar -->
 
-    <!-- Main Blog Content -->
-    <div class="large-10 columns" role="content">
-      <div class="panel radius">
-              <article>
+  <!-- Main Blog Content -->
+  <div class="large-10 columns" role="content">
+    <div class="panel radius">
+      <article>
         <h3><a name="about">About</a></h3>
         <div class="row">
           <div class="large-6 columns">
@@ -96,14 +98,14 @@
             </p>
             <p>
               If you'd like to see my CV you can go
-              <a href="./static/misc/cv.pdf">here</a>.
+              <a href="../static/misc/cv.pdf">here</a>.
             </p>
           </div>
           <div class="large-3 columns">
-            <img src="./static/images/portrait2.jpg" alt="Portrait Image 2" />
+            <img src="../static/images/portrait2.jpg" alt="Portrait Image 2" />
           </div>
           <div class="large-3 columns">
-            <img src="./static/images/portrait1.jpg" alt="Portrait Image 1" />
+            <img src="../static/images/portrait1.jpg" alt="Portrait Image 1" />
           </div>
         </div>
         <p>
@@ -156,7 +158,7 @@
                 error</a>, 2011.
               <ul>
                 <li><a href="http://arxiv.org/abs/1101.5096">arXiv version</a></li>
-                <li><a href="./static/papers/wavefilter.pdf">High-res version</a> with nicer figures</li>
+                <li><a href="../static/papers/wavefilter.pdf">High-res version</a> with nicer figures</li>
               </ul>
             </li>
             <li>D. McDougall and C. K. R. T. Jones, Variance reduction for controlled ocean gliders. In preparation.</li>
@@ -295,7 +297,7 @@
           should you wish to peruse some of my other open source contributions.
         </p>
         <p>
-          I hate that chime you hear when a Mac starts up. <a href="./static/software/Shush.dmg">Here</a>'s an app I wrote that kills it:
+          I hate that chime you hear when a Mac starts up. <a href="../static/software/Shush.dmg">Here</a>'s an app I wrote that kills it:
           <ul>
             <li>Mount the .dmg;</li>
             <li>Drag the app to your Applications folder;</li>
@@ -315,48 +317,49 @@
           <li><a href="http://go.warwick.ac.uk/ma117">MA117 Programming for Scientists</a></li>
         </ul>
       </article>
-      </div>
     </div>
-    <!-- End Main Content -->
   </div>
-  <!-- End Main Content and Sidebar -->
+  <!-- End Main Content -->
 
-  <!-- Footer -->
-  <footer class="row">
-    <div class="large-12 columns">
-      <hr />
-      <div class="row">
-        <div class="large-6 columns">
-          <p>&copy; Copyright Damon McDougall 2013</p>
-        </div>
+</div>
+<!-- End Main Content and Sidebar -->
+
+<!-- Footer -->
+<footer class="row">
+  <div class="large-12 columns">
+    <hr />
+    <div class="row">
+      <div class="large-6 columns">
+        <p>&copy; Copyright Damon McDougall 2013</p>
       </div>
     </div>
-  </footer>
-  <script>
-  document.write('<script src=' +
-  ('__proto__' in {} ? './theme/js/vendor/zepto' : './theme/js/vendor/jquery') +
-  '.js><\/script>')
-  </script>
+  </div>
+</footer>
+<script>
+document.write('<script src=' +
+('__proto__' in {} ? '../theme/js/vendor/zepto' : '../theme/js/vendor/jquery') +
+'.js><\/script>')
+</script>
 
-  <script src="./theme/js/foundation.min.js"></script>
-  <!--
-  <script src="js/foundation/foundation.js"></script>
-  <script src="js/foundation/foundation.alerts.js"></script>
-  <script src="js/foundation/foundation.clearing.js"></script>
-  <script src="js/foundation/foundation.cookie.js"></script>
-  <script src="js/foundation/foundation.dropdown.js"></script>
-  <script src="js/foundation/foundation.forms.js"></script>
-  <script src="js/foundation/foundation.joyride.js"></script>
-  <script src="js/foundation/foundation.magellan.js"></script>
-  <script src="js/foundation/foundation.orbit.js"></script>
-  <script src="js/foundation/foundation.placeholder.js"></script>
-  <script src="js/foundation/foundation.reveal.js"></script>
-  <script src="js/foundation/foundation.section.js"></script>
-  <script src="js/foundation/foundation.tooltips.js"></script>
-  <script src="js/foundation/foundation.topbar.js"></script>
-  -->
-  <script>
-    $(document).foundation();
-  </script>
+<script src="../theme/js/foundation.min.js"></script>
+<!--
+<script src="js/foundation/foundation.js"></script>
+<script src="js/foundation/foundation.alerts.js"></script>
+<script src="js/foundation/foundation.clearing.js"></script>
+<script src="js/foundation/foundation.cookie.js"></script>
+<script src="js/foundation/foundation.dropdown.js"></script>
+<script src="js/foundation/foundation.forms.js"></script>
+<script src="js/foundation/foundation.joyride.js"></script>
+<script src="js/foundation/foundation.magellan.js"></script>
+<script src="js/foundation/foundation.orbit.js"></script>
+<script src="js/foundation/foundation.placeholder.js"></script>
+<script src="js/foundation/foundation.reveal.js"></script>
+<script src="js/foundation/foundation.section.js"></script>
+<script src="js/foundation/foundation.tooltips.js"></script>
+<script src="js/foundation/foundation.topbar.js"></script>
+-->
+<script>
+  $(document).foundation();
+</script>
 </body>
 </html>
