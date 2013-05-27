@@ -28,6 +28,23 @@ li {
   text-align: center;
 }
 
+ul.side-nav > li {
+  text-align: center;
+  margin-bottom: 1.5em;
+}
+
+.make-grey {
+  color: gray;
+}
+
+a:hover > i {
+  color: black;
+}
+
+.make-black {
+  color: black;
+}
+
 object {
   margin-bottom: 1em;
 }
