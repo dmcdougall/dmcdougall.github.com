@@ -1,5 +1,195 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Damon McDougall's Homepage</title><link href="http://dmcdougall.github.io/" rel="alternate"></link><link href="http://dmcdougall.github.io/feeds/all-en.atom.xml" rel="self"></link><id>http://dmcdougall.github.io/</id><updated>2013-05-17T00:00:00+02:00</updated><entry><title>Getting started with matplotlib</title><link href="http://dmcdougall.github.io/getting-started-with-matplotlib.html" rel="alternate"></link><updated>2013-05-17T00:00:00+02:00</updated><author><name>Damon McDougall</name></author><id>tag:dmcdougall.github.io,2013-05-17:getting-started-with-matplotlib.html</id><summary type="html">&lt;p&gt;Bear with me; this is my first blog post.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Damon McDougall's Homepage</title><link href="http://dmcdougall.github.io/" rel="alternate"></link><link href="http://dmcdougall.github.io/feeds/all-en.atom.xml" rel="self"></link><id>http://dmcdougall.github.io/</id><updated>2013-05-29T00:00:00+02:00</updated><entry><title>Publication-ready the first time: Beautiful, reproducible plots with Matplotlib</title><link href="http://dmcdougall.github.io/publication-ready-the-first-time-beautiful-reproducible-plots-with-matplotlib.html" rel="alternate"></link><updated>2013-05-29T00:00:00+02:00</updated><author><name>Damon McDougall</name></author><id>tag:dmcdougall.github.io,2013-05-29:publication-ready-the-first-time-beautiful-reproducible-plots-with-matplotlib.html</id><summary type="html">&lt;p&gt;In my &lt;a class="reference external" href="http://damon-is-a-geek.com/getting-started-with-matplotlib.html"&gt;last post&lt;/a&gt;, I gave a very brief introduction into &lt;a class="reference external" href="http://matplotlib.org"&gt;matplotlib&lt;/a&gt;.  This
+time I'd like to cover some of the more finicky details.  Details that pertain
+to making figures look good in your journal publications.&lt;/p&gt;
+&lt;p&gt;We'll cover three main aspects of plot aesthetics.  First, font size.
+Optimising font size is crucial to making your figures look the part in journals.
+Second, when the fonts in your plots don't match the fonts in the main body
+text, the flow of the document becomes jarring.  We'll talk about how to fix
+that.  Third, tick marks.  Usually, figures need to be shrunk down to fit in a
+page nicely.  Adjusting the number of tick marks can make your figures look a
+lot less busy.  We'll also go over optimising the physical size of your
+graphics so that the effect of shrinking your figures down to fit in the page
+doesn't undo all the hard work you just put in to make your graphs look good.&lt;/p&gt;
+&lt;p&gt;To wrap up, I'm going to try package all these touches into a single file.
+This should make it easy to create reproducible figures.&lt;/p&gt;
+&lt;div class="section" id="font-size"&gt;
+&lt;h2&gt;Font size&lt;/h2&gt;
+&lt;p&gt;The first thing to notice is that the font size will need some adjust for most
+journals.  Usually, printed font size is around &lt;tt class="docutils literal"&gt;10pt&lt;/tt&gt; or &lt;tt class="docutils literal"&gt;11pt&lt;/tt&gt;.  Setting
+the font size of the various text elements in your plots is, of course, a
+matter of personal preference.  That said, I tend to make the font size in my
+figures one size smaller than that of the text in the main body of the article.
+Your journal's website should tell you what font size they use.&lt;/p&gt;
+&lt;p&gt;There are three main font elements in a matplotlib figure; the axes labels;
+tick labels; and the text inside a legend.  The most common way to adjust these
+is to manipulate the &lt;tt class="docutils literal"&gt;rcParams&lt;/tt&gt; dictionary.  In the following example python
+code, we set the font size of each of these elements to &lt;tt class="docutils literal"&gt;9pt&lt;/tt&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;matplotlib&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;rcParams&lt;/span&gt;
+&lt;span class="n"&gt;rcParams&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;axes.labelsize&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt;
+&lt;span class="n"&gt;rcParams&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;xtick.labelsize&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt;
+&lt;span class="n"&gt;rcParams&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;ytick.labelsize&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt;
+&lt;span class="n"&gt;rcParams&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;legend.fontsize&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;As long as you remember to do this before saving the figure, you should see the
+changes.  I usually leave all the &lt;tt class="docutils literal"&gt;rcParams&lt;/tt&gt; related foo at the top of my
+script, just to keep it all in one place.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="typeface"&gt;
+&lt;h2&gt;Typeface&lt;/h2&gt;
+&lt;p&gt;Probably the most important issue is the font the is used in the typesetting
+of your figure's text elements.  By default, matplotlib does not use the
+ubiquitous Computer Modern Roman font.  In fact, by default, it does not even
+use &lt;tt class="docutils literal"&gt;LaTeX&lt;/tt&gt; to typeset the text.  To do so, see the following:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;matplotlib&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;rcParams&lt;/span&gt;
+&lt;span class="n"&gt;rcParams&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;font.family&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;serif&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;rcParams&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;font.serif&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Computer Modern Roman&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;rcParams&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;text.usetex&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;A lot of journals use Computer Modern Roman, but some don't.  Times is a
+commonly used font.  Using a nondefault font is a little more tricky and I will
+address that later.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="adjusting-the-number-of-ticks"&gt;
+&lt;h2&gt;Adjusting the number of ticks&lt;/h2&gt;
+&lt;p&gt;When figures get shrunk down to fit inside a column of a journal article, it
+might be worth adjusting the number of ticks there are on the y-axis.
+Matplotlib tries to be clever and gives you a 'nice-looking' number of ticks,
+but sometimes it doesn't cut the mustard.  To fiddle around, you'll need to
+play with a &lt;tt class="docutils literal"&gt;ticker&lt;/tt&gt; object.  We'll use a convenience ticker called
+&lt;tt class="docutils literal"&gt;MaxNLocator&lt;/tt&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.ticker&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;MaxNLocator&lt;/span&gt;
+&lt;span class="n"&gt;my_locator&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;MaxNLocator&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c"&gt;# Set up axes and plot some awesome science&lt;/span&gt;
+
+&lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;yaxis&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_major_locator&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;my_locator&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The number &lt;tt class="docutils literal"&gt;6&lt;/tt&gt; just says, &amp;quot;give me no more than 6 ticks, and give them to me
+at nice locations&amp;quot;.  It doesn't actually say that, I just look at code so long
+all day I feel like it starts talking to me.  Coffee helps.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="the-figure-size"&gt;
+&lt;h2&gt;The figure size&lt;/h2&gt;
+&lt;p&gt;This is probably the most important of all the setting mentioned so far.
+Setting the physical figure dimensions appropriately will mean that your graphs
+aren't 'shrunk down' to fit into your papers.  This means font sizes will stay
+true to their set values.  This is also the most finicky setting.&lt;/p&gt;
+&lt;p&gt;We will optimise figure dimensions for the specific &lt;tt class="docutils literal"&gt;LaTeX&lt;/tt&gt; document that you
+are editing your paper in.  Presumably you will be using some journal's custom
+style file.  We need the width, in points, of where your figure will go.  Add
+this to your &lt;tt class="docutils literal"&gt;tex&lt;/tt&gt; file to force the compiler to show you the text width:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;\documentclass&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;some&lt;span class="nb"&gt;_&lt;/span&gt;journal&lt;span class="nb"&gt;}&lt;/span&gt;
+
+&lt;span class="k"&gt;\usepackage&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;some&lt;span class="nb"&gt;_&lt;/span&gt;packages,here&lt;span class="nb"&gt;}&lt;/span&gt;
+&lt;span class="c"&gt;% maybe some other preamble goes here&lt;/span&gt;
+
+&lt;span class="k"&gt;\begin&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;document&lt;span class="nb"&gt;}&lt;/span&gt;
+
+&lt;span class="c"&gt;% some awesome science goes here&lt;/span&gt;
+
+&lt;span class="k"&gt;\showthe\textwidth&lt;/span&gt;  &lt;span class="c"&gt;% &amp;lt;-- this tells you the textwidth&lt;/span&gt;
+
+&lt;span class="c"&gt;% some more awesome science&lt;/span&gt;
+&lt;span class="k"&gt;\end&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;document&lt;span class="nb"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This number will probably be 300--400 pts.  Lets's say 350pt.  The following
+python code will convert this number to figure dimensions that look
+aesthetically pleasing:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;WIDTH&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;350.0&lt;/span&gt;  &lt;span class="c"&gt;# the number latex spits out&lt;/span&gt;
+&lt;span class="n"&gt;FACTOR&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;0.45&lt;/span&gt;  &lt;span class="c"&gt;# the fraction of the width you&amp;#39;d like the figure to occupy&lt;/span&gt;
+&lt;span class="n"&gt;fig_width_pt&lt;/span&gt;  &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;WIDTH&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;FACTOR&lt;/span&gt;
+
+&lt;span class="n"&gt;inches_per_pt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;1.0&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="mf"&gt;72.27&lt;/span&gt;
+&lt;span class="n"&gt;golden_ratio&lt;/span&gt;  &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sqrt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mf"&gt;1.0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="mf"&gt;2.0&lt;/span&gt;  &lt;span class="c"&gt;# because it looks good&lt;/span&gt;
+
+&lt;span class="n"&gt;fig_width_in&lt;/span&gt;  &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;fig_width_pt&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;inches_per_pt&lt;/span&gt;  &lt;span class="c"&gt;# figure width in inches&lt;/span&gt;
+&lt;span class="n"&gt;fig_height_in&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;fig_width_in&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;golden_ratio&lt;/span&gt;   &lt;span class="c"&gt;# figure height in inches&lt;/span&gt;
+&lt;span class="n"&gt;fig_dims&lt;/span&gt;      &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;fig_width_in&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fig_height_in&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="c"&gt;# fig dims as a list&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;You can then either set the figure dimensions when creating the figure:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;fig&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;figsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;fig_dims&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Or you can pre compute &lt;tt class="docutils literal"&gt;fig_dims&lt;/tt&gt; by hand (say it's &lt;tt class="docutils literal"&gt;7.3&lt;/tt&gt; wide by &lt;tt class="docutils literal"&gt;4.2&lt;/tt&gt;
+high) and set the corresponding entry in the &lt;tt class="docutils literal"&gt;matplotlibrc&lt;/tt&gt; file:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;figsize&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;7.3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;4.2&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Then, when the time comes to include figures into your document, remember to
+use the &lt;tt class="docutils literal"&gt;FACTOR&lt;/tt&gt; variable to have your plots scaled properly:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;\documentclass&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;some&lt;span class="nb"&gt;_&lt;/span&gt;journal&lt;span class="nb"&gt;}&lt;/span&gt;
+
+&lt;span class="k"&gt;\usepackage&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;some&lt;span class="nb"&gt;_&lt;/span&gt;packages,here,graphicx&lt;span class="nb"&gt;}&lt;/span&gt;
+&lt;span class="c"&gt;% maybe some other preamble goes here&lt;/span&gt;
+
+&lt;span class="k"&gt;\begin&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;document&lt;span class="nb"&gt;}&lt;/span&gt;
+
+&lt;span class="c"&gt;% some awesome science goes here&lt;/span&gt;
+
+&lt;span class="k"&gt;\begin&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;figure&lt;span class="nb"&gt;}&lt;/span&gt;
+&lt;span class="k"&gt;\includegraphics&lt;/span&gt;&lt;span class="na"&gt;[width=0.45\textwidth]&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;figure.pdf&lt;span class="nb"&gt;}&lt;/span&gt;  &lt;span class="c"&gt;% &amp;lt;-- FACTOR = 0.45&lt;/span&gt;
+&lt;span class="k"&gt;\end&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;figure&lt;span class="nb"&gt;}&lt;/span&gt;
+
+&lt;span class="c"&gt;% some more awesome science&lt;/span&gt;
+&lt;span class="k"&gt;\end&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;document&lt;span class="nb"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now your figures should look good.  This is all personal preference, though.
+Feel free to play around and find something you like.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="putting-it-all-together"&gt;
+&lt;h2&gt;Putting it all together&lt;/h2&gt;
+&lt;p&gt;Well, those four issues are the ones whose defaults irk me the most, but it's
+kind of a pain to type out all that code for each plot I do.  Even still, I
+might be writing several papers at once, each containing several plots.
+There's a better way to manage this, and it's to use the &lt;tt class="docutils literal"&gt;matplotlibrc&lt;/tt&gt; file.&lt;/p&gt;
+&lt;p&gt;As a quick introduction, the keys of the &lt;tt class="docutils literal"&gt;rcParams&lt;/tt&gt; dictionary correspond to
+entries in the &lt;tt class="docutils literal"&gt;matplotlibrc&lt;/tt&gt; file.  For the issues discussed above, here are
+the mappings from the &lt;tt class="docutils literal"&gt;rcParams&lt;/tt&gt; dictionary to the entry in the
+&lt;tt class="docutils literal"&gt;matplotlibrc&lt;/tt&gt; file:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# rcParams dict&lt;/span&gt;
+&lt;span class="n"&gt;rcParams&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;axes.labelsize&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt;
+&lt;span class="n"&gt;rcParams&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;xtick.labelsize&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt;
+&lt;span class="n"&gt;rcParams&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;ytick.labelsize&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt;
+&lt;span class="n"&gt;rcParams&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;legend.fontsize&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt;
+&lt;span class="n"&gt;rcParams&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;font.family&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;serif&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;rcParams&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;font.serif&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Computer Modern Roman&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;rcParams&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;text.usetex&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;
+&lt;span class="n"&gt;rcParams&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;figure.figsize&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;7.3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;4.2&lt;/span&gt;
+
+&lt;span class="c"&gt;# matplotlibrc file&lt;/span&gt;
+&lt;span class="n"&gt;axes&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;labelsize&lt;/span&gt;  &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;9.0&lt;/span&gt;  &lt;span class="c"&gt;# fontsize of the x any y labels&lt;/span&gt;
+&lt;span class="n"&gt;xtick&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;labelsize&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;9.0&lt;/span&gt;  &lt;span class="c"&gt;# fontsize of the tick labels&lt;/span&gt;
+&lt;span class="n"&gt;ytick&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;labelsize&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;9.0&lt;/span&gt;  &lt;span class="c"&gt;# fontsize of the tick labels&lt;/span&gt;
+&lt;span class="n"&gt;legend&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fontsize&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;9.0&lt;/span&gt;
+&lt;span class="n"&gt;font&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;family&lt;/span&gt;     &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;serif&lt;/span&gt;
+&lt;span class="n"&gt;font&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;serif&lt;/span&gt;      &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Computer&lt;/span&gt; &lt;span class="n"&gt;Modern&lt;/span&gt; &lt;span class="n"&gt;Roman&lt;/span&gt;
+&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;usetex&lt;/span&gt;     &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;  &lt;span class="c"&gt;# use latex for all text handling&lt;/span&gt;
+&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;figsize&lt;/span&gt;  &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;7.3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;4.2&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Usually, the &lt;tt class="docutils literal"&gt;matplotlibrc&lt;/tt&gt; file lives in &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;~/.matplotlib&lt;/span&gt;&lt;/tt&gt;.  If it doesn't,
+system-wide defaults are used.  If it does, then that file determines the
+defaults to be used for all plots you create.  The downside is that it's likely
+the case, especially if you're working on more than one paper, that you'd like
+a different set of defaults to apply to each one.&lt;/p&gt;
+&lt;p&gt;Enter &lt;tt class="docutils literal"&gt;rc_file&lt;/tt&gt;.  This function takes a path to a file that is treated as a
+&lt;tt class="docutils literal"&gt;matplotlibrc&lt;/tt&gt; file.  Now you can keep your default settings in one place for
+each journal.  Moreover, if you submit any new papers to that journal, all your
+plots will look the same across multiple papers.  Just copy the matplotlib
+defaults, from &lt;a class="reference external" href="http://matplotlib.org/users/customizing.html#matplotlibrc-sample"&gt;here&lt;/a&gt;, override with your defaults, and then stick the following
+at the top of your plotter:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;matplotlib&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;rc_file&lt;/span&gt;
+&lt;span class="n"&gt;rc_file&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;/path/to/my/rc/file.rc&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c"&gt;# &amp;lt;-- the file containing your settings&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
+
+&lt;span class="n"&gt;fig&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="c"&gt;# plot some awesome science&lt;/span&gt;
+
+&lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;savefig&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;awesome_science.pdf&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now all your plots will look the same, every time, and for every journal.  Your
+plots are now reproducible.&lt;/p&gt;
+&lt;/div&gt;
+</summary><category term="python"></category><category term="matplotlib"></category><category term="science"></category></entry><entry><title>Getting started with matplotlib</title><link href="http://dmcdougall.github.io/getting-started-with-matplotlib.html" rel="alternate"></link><updated>2013-05-17T00:00:00+02:00</updated><author><name>Damon McDougall</name></author><id>tag:dmcdougall.github.io,2013-05-17:getting-started-with-matplotlib.html</id><summary type="html">&lt;p&gt;Bear with me; this is my first blog post.&lt;/p&gt;
 &lt;p&gt;I want to write about something that I care about.  I care about software and I
 care about science.  More importantly, I care about how these two interact and
 how software can help the scientific community.  Presentation of science to the
