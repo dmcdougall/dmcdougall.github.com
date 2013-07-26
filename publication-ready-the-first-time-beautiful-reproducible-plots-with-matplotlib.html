@@ -277,8 +277,11 @@ at the top of your plotter:</p>
 
 <span class="c"># plot some awesome science</span>
 
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">pad</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>  <span class="c"># Make the figure use all available whitespace</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">&#39;awesome_science.pdf&#39;</span><span class="p">)</span>
 </pre></div>
+<p>Notice the use of <tt class="docutils literal">tight_layout</tt>, which makes the figure use all the
+available whitespace.</p>
 <p>Now all your plots will look the same, every time, and for every journal.  Your
 plots are now reproducible.</p>
 </div>

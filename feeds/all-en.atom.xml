@@ -185,8 +185,11 @@ at the top of your plotter:&lt;/p&gt;
 
 &lt;span class="c"&gt;# plot some awesome science&lt;/span&gt;
 
+&lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tight_layout&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pad&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c"&gt;# Make the figure use all available whitespace&lt;/span&gt;
 &lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;savefig&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;awesome_science.pdf&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Notice the use of &lt;tt class="docutils literal"&gt;tight_layout&lt;/tt&gt;, which makes the figure use all the
+available whitespace.&lt;/p&gt;
 &lt;p&gt;Now all your plots will look the same, every time, and for every journal.  Your
 plots are now reproducible.&lt;/p&gt;
 &lt;/div&gt;
