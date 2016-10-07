@@ -18,7 +18,7 @@ Well now I'm stuffed.  I can't hack `cumsum` to give me the right thing.  Althou
 
 So, now I needed to write my own `ufunc`.  Turns out it's [kind of a disaster](http://docs.scipy.org/doc/numpy/user/c-info.ufunc-tutorial.html) when you just want something quick and dirty.
 
-###To the rescue: `numpy.frompyfunc`
+### To the rescue: `numpy.frompyfunc`
 
 Well, it turns out I don't need to write any `c`.  I can define a normal python binary function:
 
@@ -48,7 +48,7 @@ ValueError                                Traceback (most recent call last)
 ValueError: could not find a matching type for f (vectorized).accumulate, requested type has type code 'd'
 ```
 
-###The workaround
+### The workaround
 
 Turns out I didn't have to do any of the hard work.  There's an open (as of `numpy` version 1.8.0) [ticket on github](https://github.com/numpy/numpy/issues/4155) that gives the workaround:
 

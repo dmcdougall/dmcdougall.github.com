@@ -20,20 +20,20 @@ This is what a typical session might look like:
 
 ```
 In [1]: import matplotlib
- 
+
 In [2]: matplotlib.use('qt4agg')
- 
+
 In [3]: import matplotlib.pyplot as plt
- 
+
 In [4]: plt.ion()
- 
+
 In [5]: fig = plt.figure()
- 
+
 In [6]: ax = fig.add_subplot(1, 1, 1)
- 
+
 In [7]: ax.plot([1, 2, 3])
 Out[7]: [<matplotlib.lines.Line2D at 0x11178f5d0>]
- 
+
 In [8]: plt.draw()  # Now look at the plot, decide tweaks
 
 In [9]: # Some tweak here...
@@ -52,20 +52,20 @@ Turns out, there's an `IPython` [magic function that does this](http://stackover
 
 ```
 In [1]: import matplotlib
- 
+
 In [2]: matplotlib.use('qt4agg')
- 
+
 In [3]: import matplotlib.pyplot as plt
- 
+
 In [4]: plt.ion()
- 
+
 In [5]: fig = plt.figure()
- 
+
 In [6]: ax = fig.add_subplot(1, 1, 1)
- 
+
 In [7]: ax.plot([1, 2, 3])
 Out[7]: [<matplotlib.lines.Line2D at 0x11178f5d0>]
- 
+
 In [8]: plt.draw()  # Now look at the plot, decide tweaks
 
 In [9]: # Some tweak here...
