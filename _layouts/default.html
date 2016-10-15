@@ -1,47 +1,11 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>{{ page.title }}</title>
-    <!-- link to main stylesheet -->
-    <link rel="stylesheet" type="text/css" href="/css/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/github.min.css">
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
-    <style>
-      pre {
-        word-wrap: normal;
-        -moz-hyphens: none;
-        -ms-hyphens: none;
-        -webkit-hyphens: none;
-        hyphens: none;
-        font-size: 1.3em;
-        line-height: 1.3em;
-      }
-      pre code, pre tt {
-        white-space: pre;
-      }
-    </style>
-    <script>hljs.initHighlightingOnLoad();</script>
-  </head>
-  <body>
-    <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/cv">CV</a></li>
-        <li><a href="/blog">Blog</a></li>
-      </ul>
-    </nav>
-    <div class="container">
+<html lang="en">
+{% include head.html %}
+<body>
+  <div class="content-container">
+    {{ content }}
 
-      {{ content }}
-
-    </div><!-- /.container -->
-    <footer>
-      <ul>
-        <li><a href="mailto:mail@dmcdougall.co.uk">email</a></li>
-        <li><a href="https://github.com/dmcdougall">github.com/dmcdougall</a></li>
-      </ul>
-    </footer>
-  </body>
+    {% include footer.html %}
+  </div>
+</body>
 </html>
