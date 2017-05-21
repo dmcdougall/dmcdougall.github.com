@@ -31,6 +31,10 @@ markdown:           kramdown
 kramdown:
   imput:            GFM
 
+# Pagination
+paginate: 5
+paginate_path: /page:num
+
 # Navigation
 nav:
   - name:           "About"
@@ -64,6 +68,6 @@ defaults:
 gems:
   - jekyll-sitemap
   # - jekyll-seo-tag
-  # - jekyll-paginate
+  - jekyll-paginate
 
 exclude:            [vendor]
