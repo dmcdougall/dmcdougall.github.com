@@ -12,7 +12,7 @@ I wrote it to kindly inform me that:
   - But I've left it in the code in the [workaround](#workaround) for
     posterity's sake
 - There is a related issue/feature request here:
-  https://github.com/numpy/numpy/issues/14020
+  [https://github.com/numpy/numpy/issues/14020](https://github.com/numpy/numpy/issues/14020)
 
 Now back to the original article...
 
