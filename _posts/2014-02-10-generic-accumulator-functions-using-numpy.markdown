@@ -3,6 +3,19 @@ layout: post
 title: Generic accumulator functions using numpy
 date: 2014-02-10 20:33:03.000000000 -06:00
 ---
+### 2024-02-17 update
+
+A very astute observer stumbled across this post almost ten years after
+I wrote it to kindly inform me that:
+
+- The `dtype` keyword argument is no longer needed in numpy.ufunc.accumulate
+  - But I've left it in the code in the [workaround](#workaround) for
+    posterity's sake
+- There is a related issue/feature request here:
+  https://github.com/numpy/numpy/issues/14020
+
+Now back to the original article...
+
 So `numpy.cumsum` is pretty useful.  It returns an array of the running sum of elements from another array.
 
 ```
@@ -48,7 +61,7 @@ ValueError                                Traceback (most recent call last)
 ValueError: could not find a matching type for f (vectorized).accumulate, requested type has type code 'd'
 ```
 
-### The workaround
+### The workaround {#workaround}
 
 Turns out I didn't have to do any of the hard work.  There's an open (as of `numpy` version 1.8.0) [ticket on github](https://github.com/numpy/numpy/issues/4155) that gives the workaround:
 
